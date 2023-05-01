@@ -9,7 +9,9 @@ public class PlayerController : MonoBehaviour
 
     public float jumpPower = 10;
 
-    private 
+    public float jumpInterval = 0.2f;
+
+    private float jumpCooldown = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,10 +21,54 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bool jumInput = Input.GetKey(KeyCode.Space);
-        if (jumpInput)
+        jumpCooldown -= Time.deltaTime;
+        bool isGameActive = GameManager.Instance.IsGameActive();
+        bool canJump = jumpCooldown <= 0 && isGameActive;
+
+        if (canJump)
         {
-            jumpPower();
+            bool jumpInput = Input.GetKey(KeyCode.Space);
+
+            if (jumpInput)
+            {
+                Jump();
+
+            }   
+        }
+        // Toggle gravity
+        thisRigidbody.useGravity = isGameActive;
+    }
+    void OnCollisionEnter(Collision other)
+    {
+        OnCustomCollisionEnter(other.gameObject);
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        OnCustomCollisionEnter(other.gameObject);
+    }
+
+    private void OnCustomCollisionEnter(GameObject other)
+    {
+        bool isSensor = other.CompareTag("Sensor");
+        if (isSensor)
+        {
+            // Score!
+            GameManager.Instance.score++;
+            Debug.Log("Score: " + GameManager.Instance.score);
+        }
+        else
+        {
+            // Game over =(
+            GameManager.Instance.EndGame();
         }
     }
+    private void Jump()
+    {
+        jumpCooldown = jumpInterval;
+
+        thisRigidbody.velocity = Vector3.zero;
+        thisRigidbody.AddForce(new Vector3(0, jumpPower, 0), ForceMode.Impulse);
+    }
+
 }
