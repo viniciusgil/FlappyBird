@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
     public int gameStartScene;
+    public TMPro.TextMeshProUGUI scoreText;
 
    
     [FormerlySerializedAs("prefabs")]
@@ -19,11 +20,18 @@ public class GameManager : MonoBehaviour
     public float obstacleOffsetX = 0;
     public Vector2 obstacleOffsetY = new Vector2(0, 0);
     public AudioSource audioSourceGameOver;
+    
 
+   
     [HideInInspector]
     public int score;
 
     private bool isGameOver = false;
+
+    private void Update()
+    {
+        scoreText.text = score.ToString();
+    }
 
     void Awake()
     {
