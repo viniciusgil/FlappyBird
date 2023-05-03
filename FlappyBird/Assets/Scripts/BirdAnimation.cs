@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BirdAnimation : MonoBehaviour
 {
+    public Animator animatior;
+
     // Start is called before the first frame update
     void Start()
     {

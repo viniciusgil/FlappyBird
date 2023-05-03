@@ -9,12 +9,16 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
+    public int gameStartScene;
+
+   
     [FormerlySerializedAs("prefabs")]
     public List<GameObject> obstaclePrefabs;
     public float obstacleInterval = 1;
     public float obstacleSpeed = 10;
     public float obstacleOffsetX = 0;
     public Vector2 obstacleOffsetY = new Vector2(0, 0);
+    public AudioSource audioSourceGameOver;
 
     [HideInInspector]
     public int score;
@@ -52,8 +56,10 @@ public class GameManager : MonoBehaviour
         // Print message
         Debug.Log("Game over... Your score was: " + score);
 
+        audioSourceGameOver.Play();
+
         // Reload scene
-        StartCoroutine(ReloadScene(2));
+        StartCoroutine(ReloadScene(5));
     }
 
     private IEnumerator ReloadScene(float delay)

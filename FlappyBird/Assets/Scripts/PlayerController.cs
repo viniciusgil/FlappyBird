@@ -12,6 +12,10 @@ public class PlayerController : MonoBehaviour
     public float jumpInterval = 0.2f;
 
     private float jumpCooldown = 0;
+
+    public AudioSource audioSourceCollision;
+
+    public AudioSource audioSourceJump;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +36,7 @@ public class PlayerController : MonoBehaviour
             if (jumpInput)
             {
                 Jump();
+                audioSourceJump.Play();
 
             }   
         }
@@ -56,11 +61,13 @@ public class PlayerController : MonoBehaviour
             // Score!
             GameManager.Instance.score++;
             Debug.Log("Score: " + GameManager.Instance.score);
+            
         }
         else
         {
             // Game over =(
             GameManager.Instance.EndGame();
+            audioSourceCollision.Play();
         }
     }
     private void Jump()
