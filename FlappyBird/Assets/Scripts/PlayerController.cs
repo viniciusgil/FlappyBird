@@ -68,6 +68,7 @@ public class PlayerController : MonoBehaviour
             // Game over =(
             GameManager.Instance.EndGame();
             audioSourceCollision.Play();
+            Destroy(gameObject);
         }
     }
     private void Jump()

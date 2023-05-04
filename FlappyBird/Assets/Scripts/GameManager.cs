@@ -20,6 +20,9 @@ public class GameManager : MonoBehaviour
     public float obstacleOffsetX = 0;
     public Vector2 obstacleOffsetY = new Vector2(0, 0);
     public AudioSource audioSourceGameOver;
+
+    public GameObject gameOver;
+    public GameObject player;
     
 
    
@@ -65,9 +68,11 @@ public class GameManager : MonoBehaviour
         Debug.Log("Game over... Your score was: " + score);
 
         audioSourceGameOver.Play();
+        gameOver.SetActive(true);
+        
 
         // Reload scene
-        StartCoroutine(ReloadScene(5));
+        //StartCoroutine(ReloadScene(5));
     }
 
     private IEnumerator ReloadScene(float delay)
@@ -83,5 +88,15 @@ public class GameManager : MonoBehaviour
     private string GetDebuggerDisplay()
     {
         return ToString();
+    }
+
+    public void Enable()
+    {
+        gameObject.SetActive(true);
+    }
+
+    private void OnEnable()
+    {
+        player.SetActive(true); 
     }
 }
