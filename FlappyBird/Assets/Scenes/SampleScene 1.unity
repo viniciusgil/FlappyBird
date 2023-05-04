@@ -607,7 +607,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Flappy Bird
+  m_text: My Flappy Bird
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
@@ -1118,6 +1118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameStartScene: 0
+  scoreText: {fileID: 0}
   obstaclePrefabs:
   - {fileID: 2671091556073173525, guid: be3e22230d83aeb429c00f3d3d195801, type: 3}
   obstacleInterval: 2
@@ -1125,6 +1126,8 @@ MonoBehaviour:
   obstacleOffsetX: 30
   obstacleOffsetY: {x: -5, y: 3}
   audioSourceGameOver: {fileID: 698098016}
+  gameOver: {fileID: 0}
+  player: {fileID: 0}
   score: 0
 --- !u!4 &698098014
 Transform:
@@ -3845,38 +3848,53 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4248551679818166659, guid: 086896fbd41d4b742a9765c51637eb19,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.6385055
+      objectReference: {fileID: 0}
+    - target: {fileID: 4248551679818166659, guid: 086896fbd41d4b742a9765c51637eb19,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.6385055
+      objectReference: {fileID: 0}
+    - target: {fileID: 4248551679818166659, guid: 086896fbd41d4b742a9765c51637eb19,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.6385055
+      objectReference: {fileID: 0}
+    - target: {fileID: 4248551679818166659, guid: 086896fbd41d4b742a9765c51637eb19,
+        type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -5.78
       objectReference: {fileID: 0}
     - target: {fileID: 4248551679818166659, guid: 086896fbd41d4b742a9765c51637eb19,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1.01
       objectReference: {fileID: 0}
     - target: {fileID: 4248551679818166659, guid: 086896fbd41d4b742a9765c51637eb19,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 8.83
+      value: -4.39
       objectReference: {fileID: 0}
     - target: {fileID: 4248551679818166659, guid: 086896fbd41d4b742a9765c51637eb19,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.9758034
       objectReference: {fileID: 0}
     - target: {fileID: 4248551679818166659, guid: 086896fbd41d4b742a9765c51637eb19,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4248551679818166659, guid: 086896fbd41d4b742a9765c51637eb19,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.21864983
       objectReference: {fileID: 0}
     - target: {fileID: 4248551679818166659, guid: 086896fbd41d4b742a9765c51637eb19,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4248551679818166659, guid: 086896fbd41d4b742a9765c51637eb19,
         type: 3}
@@ -3886,7 +3904,7 @@ PrefabInstance:
     - target: {fileID: 4248551679818166659, guid: 086896fbd41d4b742a9765c51637eb19,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 25.259
       objectReference: {fileID: 0}
     - target: {fileID: 4248551679818166659, guid: 086896fbd41d4b742a9765c51637eb19,
         type: 3}
